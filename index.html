@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <div class="healthy-wrapper" id="app">
+        <div class="healthy-header">
+            <div class="healthy-welcome">admin欢迎登录</div>
+            <div class="healthy-logo">
+                <div class="row">
+                    <div class="col-md-9"> 健康档案中心</div>
+                    <div class="col-md-3 fs14">
+                        <a href="javascript:;">
+                            <i class="glyphicon glyphicon-cog"></i>&nbsp;&nbsp;设置
+                        </a>
+                        <a href="javascript:;">
+                            <i class="glyphicon glyphicon-log-out"></i>&nbsp;&nbsp;退出
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="healthy-content">
+            <div class="healthy-left pull-left">
+                <div class="healthy-photo">
+                    <dl>
+                        <dt> <img src="images/touxiang.png" alt=""></dt>
+                        <dd>admin</dd>
+                    </dl>
+                </div>
+                <div class="healthy-nav">
+                    <ul>
+                        <li>
+                            <router-link to="/base"><i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;基础资料</router-link>
+                        </li>
+                        <li>
+                            <router-link to="/clinicreRecord"><i class="glyphicon glyphicon-book"></i>&nbsp;&nbsp;就诊记录</router-link>
+                        </li>
+                        <li>
+                            <router-link to="/userRecord"><i class="glyphicon glyphicon-list-alt"></i>&nbsp;&nbsp;用药记录</router-link>
+                        </li>
+                        <li>
+                            <router-link to="/onlyRecord"><i class="glyphicon glyphicon-tags"></i>&nbsp;&nbsp;专项慢病管理记录</router-link>
+                        </li>
+                        <!--<li>
+                        <router-link to="/moveRecord">运动记录</router-link>
+                    </li>-->
+                        <li>
+                            <router-link to="/imageRecord"><i class="glyphicon glyphicon-picture"></i>&nbsp;&nbsp;健康影像记录</router-link>
+                        </li>
+                        <li>
+                            <router-link to="/countRecord"><i class="glyphicon glyphicon-dashboard"></i>&nbsp;&nbsp;统计分析</router-link>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+            <div class="healthy-right pull-left">
+
+                <router-view></router-view>
+
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="healthy-footer"></div>
+    </div>
+</body>
+<script type="text/x-template" id="rightTemplate">
+    <div>
+        <div class="healthy-breadcurumb">健康控制展示台</div>
+        <div class="healthy-right-tab">
+            <ul>
+                <li>
+                    <router-link :to="{name:$route.name,params:{c_id:'124'}}">张翠山</router-link>
+                </li>
+                <li>
+                    <router-link :to="{name:$route.name,params:{c_id:'125'}}">王涛</router-link>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <div class="healthy-fream">
+            <router-view></router-view>
+        </div>
+    </div>
+</script>
+<script type="text/x-template" id="baseTemplate">
+    <div class="base-warpper">
+        <div class="base-module">
+            <div class="base-module-title">个人基本信息表</div>
+            <div class="base-module-content">
+                姓名：张翠山 <br> 身份证：510XXXXXXXX <br> 民族：汉 <br> ABO血型代码：A <br> RH血型代码：阳性 <br> 学历代码：大学本科 <br> 职业类别：高中教师 <br> 婚姻状况：已婚 <br>
+            </div>
+        </div>
+        <div class="base-module">
+            <div class="base-module-title"> 既往病史概要</div>
+            <div class="base-module-content">
+
+                患病种类：脂肪肝（2014-4-2确诊）<br> 手术史：胰腺手术（ 2004-12-3 操作）<br> 外伤史：右胫骨粉碎性骨折（2010-1-2发生），左髌骨骨裂（2005-6-4发生）
+                <br> 输血史：3000ML（2004-12-3）
+
+            </div>
+        </div>
+        <div class="base-module">
+            <div class="base-module-title">其他概要</div>
+            <div class="base-module-content">
+                遗传性疾病：无<br> 残疾：无
+                <br> 药物过敏史标志：有
+                <br> 药物过敏源：
+
+            </div>
+        </div>
+        <div class="base-module">
+            <div class="base-module-title">最新检查结果表</div>
+            <div class="base-module-content">
+                无
+            </div>
+        </div>
+        <div class="base-module">
+            <!--<div class="base-module-title">个人基本信息表</div>-->
+            <div class="base-module-content base-span">
+                <div>
+                    近期就诊记录：
+                </div>
+                <div>
+                    近期运动记录:
+                </div>
+            </div>
+        </div>
+        <div class="base-module">
+            <!--<div class="base-module-title">个人基本信息表</div>-->
+            <div class="base-module-content base-span">
+                <div>
+                    定期检查提醒
+                </div>
+                <div>
+                    注意点:
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-template" id="clinicreRecordTemplate">
+    <div class="record-warrper">
+        <table>
+            <thead>
+                <tr>
+                    <th>时间</th>
+                    <th>医疗机构</th>
+                    <th>科室</th>
+                    <th>医生</th>
+                    <th>就诊原因</th>
+                    <th>相关检查</th>
+                    <th>就诊说明</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2016-01-23</td>
+                    <td>西南医院</td>
+                    <td>消化内科</td>
+                    <td>陈可</td>
+                    <td>右下腹疼痛，恶习</td>
+                    <td>肝功能检查、血常规检查</td>
+                    <td>肝功能有异常</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</script>
+<script type="text/x-template" id="userRecordTemplate">
+    <div class="record-warrper">
+        <table>
+            <thead>
+                <tr>
+                    <th>时间</th>
+                    <th>症状</th>
+                    <th>用药</th>
+                    <th>用药原因</th>
+                    <th>药物来源</th>
+                    <th>备注</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2016-01-23</td>
+                    <td></td>
+                    <td>消化内科</td>
+                    <td></td>
+                    <td>右下腹疼痛，恶习</td>
+                    <td>肝功能检查、血常规检查</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</script>
+<script type="text/x-template" id="onlyRecordTemplate">
+    <div class="record-warrper">
+        <div class="only-record-tab mt10">
+            <ul>
+                <li><a href="javascript:;" class="btn btn-success">专项名1</a></li>
+                <li><a href="javascript:;" class="btn btn-success">专项名2</a></li>
+                <li><a href="javascript:;" class="btn btn-success">专项名3</a></li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <div class="only-record-content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>专项名1</th>
+                        <th>专项名2</th>
+                        <th>专项名3</th>
+                        <th>专项名4</th>
+                        <th>专项名5</th>
+                        <th>专项名6</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>就诊计划</td>
+                        <td>难产</td>
+                        <td>难产</td>
+                        <td>难产</td>
+                        <td>难产</td>
+                        <td>难产</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</script>
+<script type="text/x-template" id="moveRecordTemplate">
+    <div>运动</div>
+</script>
+<script type="text/x-template" id="imageRecordTemplate">
+    <div class="image-record mt15">
+        <div class="move-search">
+            <input type="search" name="" id="beginTime" class="search-input kbtn" placeholder="请选择时间">
+            <input type="button" name="" class="search-button" value="查询">
+        </div>
+        <div class="image-content mt15">
+            <div class="image-content-tab">
+                <div class="image-warpper">
+                    <a href="javascript:;" @click="showImage('default')"><img src="images/default.jpg" width="200" height="100" alt=""></a>
+                </div>
+            </div>
+            <div class="image-show-imgage mt10">
+                <div style="float:left;width:50%">
+                    <img :src="showImg" alt="">
+                </div>
+                <div style="float:left;width:30%;background:#f2f2f2;height:300px;">
+                    备注区：
+                </div>
+            </div>
+        </div>
+        <div id="datePlugin"></div>
+
+
+    </div>
+</script>
+<script type="text/x-template" id="countRecordTemplate">
+    <div class="count-record">
+        <div class="row mt10">
+            <div class="col-md-3"> <input type="text" name="" class="form-control" id="datetimepicker" value="请选择时间"></div>
+        </div>
+        <div class="row mt10">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="sr-only" for="exampleInputAmount"></label>
+                            <div class="input-group">
+                                <div class="input-group-addon">编号</div>
+                                <input type="text" class="form-control" disabled value="5002121982024963" id="exampleInputAmount" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="sr-only" for="exampleInputAmount"></label>
+                            <div class="input-group">
+                                <div class="input-group-addon">身高</div>
+                                <input type="text" class="form-control" disabled value="170.0" id="exampleInputAmount" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="sr-only" for="exampleInputAmount"></label>
+                            <div class="input-group">
+                                <div class="input-group-addon">腰围</div>
+                                <input type="text" class="form-control" disabled value="89" id="exampleInputAmount" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="sr-only" for="exampleInputAmount"></label>
+                            <div class="input-group">
+                                <div class="input-group-addon">姓名</div>
+                                <input type="text" class="form-control" disabled value="刘炳均" id="exampleInputAmount" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="sr-only" for="exampleInputAmount"></label>
+                            <div class="input-group">
+                                <div class="input-group-addon">体型</div>
+                                <input type="text" class="form-control" disabled value="胖" id="exampleInputAmount" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="sr-only" for="exampleInputAmount"></label>
+                            <div class="input-group">
+                                <div class="input-group-addon">臀围</div>
+                                <input type="text" class="form-control" disabled value="70" id="exampleInputAmount" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="sr-only" for="exampleInputAmount"></label>
+                            <div class="input-group">
+                                <div class="input-group-addon">年龄/性别</div>
+                                <input type="text" class="form-control" disabled value="18" id="exampleInputAmount" placeholder="">
+                                <div class="input-group-addon">男</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="sr-only" for="exampleInputAmount"></label>
+                            <div class="input-group">
+                                <div class="input-group-addon">重量</div>
+                                <input type="text" class="form-control" disabled value="78kg" id="exampleInputAmount" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="sr-only" for="exampleInputAmount"></label>
+                            <div class="input-group">
+                                <div class="input-group-addon">腰臀比</div>
+                                <input type="text" class="form-control" disabled value="" id="exampleInputAmount" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="user-info doc-pen-h">
+                    请注意： 如有任何意见和建议，请联系相关工作人员，谢谢您的参与。
+                </div>
+            </div>
+        </div>
+        <div><span class="show-equer"></span>全身数据</div>
+        <div class="row mt10">
+            <div class="col-md-6">
+                <div class="count-health-info">
+                    <ul>
+                        <li>
+                            <div class="health-bar">体重/以上<br>42.2</div>
+                            <div class="health-bar-other"> 标准体重<br>42.2</div>
+                        </li>
+                        <li>
+                            <div class="health-bar">去脂体制/以上<br>42.2</div>
+                            <div class="health-bar-other">体脂肪量<br>24.2</div>
+                        </li>
+                        <li>
+                            <div class="health-bar">肌肉量/以上<br>42.2</div>
+                            <div class="health-bar-other">无机盐<br>24.2</div>
+                        </li>
+                        <li>
+                            <div class="health-bar">身体水分/以上<br>42.2</div>
+                            <div class="health-bar-other">蛋白质/以上<br>24.2</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+
+                <div class="count-title">体型判定</div>
+                <div class="mt10 count-content">
+                    <div class="count-content-left">体脂肪率</div>
+                    <div class="count-content-right">
+                        <div class="conunt-content-right-row">
+                            <div>隐形肥胖</div>
+                            <div>肥胖型</div>
+                            <div>偏胖型</div>
+                            <div>运动不足型</div>
+                            <div class="active-health">标准体型</div>
+                            <div>标准肌肉型</div>
+                            <div>偏瘦型</div>
+                            <div>偏瘦肌肉型</div>
+                            <div>肌肉发达性</div>
+                        </div>
+                        <div class="tc mt2 h-style-color">肌肉含量</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div><span class="show-equer"></span>部位分析</div>
+        <div class="row mt10">
+            <div class="col-md-6">
+                <div class="count-title">肌肉综合评价</div>
+                <div class="mt10">
+                    <div id="main1" style="width: 100%;height:300px;"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="count-title">脂肪综合评价</div>
+                <div class="mt10">
+                    <div id="main" style="width: 100%;height:300px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="mt10"><span class="show-equer"></span>身体平衡</div>
+        <div class="row mt10">
+            <div class="col-md-6">
+                <div class="count-title">肌肉平衡</div>
+                <div class="mt10">
+                    <img src="images/u175.png" alt="">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="count-title">腿部肌肉点数</div>
+                <div class="mt10">
+                    <div id="main2" style="width: 100%;height:300px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt10">
+            <div class="col-md-6">
+                <div class="col-md-6">
+                    <p class="doc-pen">医生签字：</p>
+                </div>
+                <div class="col-md-6">
+                    <p class="doc-pen">测试意见和建议：</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="count-title">调节指导</div>
+                <div class="mt2 conunt-warrper">
+                    <table class="table table-bordered">
+                        <tr>
+                            <td></td>
+                            <td>测量值</td>
+                            <td>调节值</td>
+                            <td></td>
+                            <td>调节</td>
+                        </tr>
+                        <tr>
+                            <td>体重</td>
+                            <td>82.5</td>
+                            <td>+18.2</td>
+                            <td>调节目标</td>
+                            <td>+12.9</td>
+                        </tr>
+                        <tr>
+                            <td>体脂肪量</td>
+                            <td>24.2</td>
+                            <td>+12.9</td>
+                            <td></td>
+                            <td>0.5</td>
+                        </tr>
+                        <tr>
+                            <td>肌肉量</td>
+                            <td> 53.6</td>
+                            <td>+4.4</td>
+                            <td>调节周期</td>
+                            <td>26周</td>
+
+                        </tr>
+                        <tr>
+                            <td>基础代谢量</td>
+                            <td>1516 kcal</td>
+                            <td>总能量消耗</td>
+                            <td>23335 kcal</td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>身体年龄</td>
+                            <td>8岁</td>
+                            <td>阻抗</td>
+                            <td>402Ω</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</script>
+<script src="js/jquery.min.js"></script>
+<script src="js/vue.min.js"></script>
+<script src="js/vue-router.min.js"></script>
+<script src="js/jquery.datetimepicker.js"></script>
+<script src="http://cdn.bootcss.com/echarts/3.4.0/echarts.min.js"></script>
+<script src="js/index.js"></script>
+
+</html>
